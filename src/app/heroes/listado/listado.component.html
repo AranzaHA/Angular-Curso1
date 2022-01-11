@@ -1,0 +1,24 @@
+<p>listado de heroes:</p>
+
+<div *ngIf="heroeBorrado1!==' ' ; else noBorrado"> <!-- se crea variable
+                                                  de referencia  local -->
+  <h3>Heroe borrado:  <small>{{heroeBorrado1}}</small> </h3>
+ </div>
+
+ <!-- Los template se usan para contener lo html que se debe mostrar en la
+  clausula ELSE-->
+ <ng-template #noBorrado><!-- se usa la variable de referencia local del
+                          else para indicar que esto se hara en caso del else-->
+   <h3>
+     No ha borrado nada
+   </h3>
+ </ng-template>
+
+<button (click)="borrarHeroe()">Borrar</button>
+
+<ul>
+  <li *ngFor="let heroe of heroes; let i=index"><!-- AQUI SIEMPRE DEBE MANDARSE
+                                                 ALGO ITERABLE-->
+    {{i + 1}} - {{heroe}}
+  </li>
+</ul>
